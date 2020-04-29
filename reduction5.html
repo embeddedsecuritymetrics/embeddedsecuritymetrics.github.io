@@ -1,0 +1,5027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-04-28 Tue 17:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>5th Reduction</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Angel Longueira" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<style> table, td, tr { border: 1px solid black; } </style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">5th Reduction</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">#</td>
+<td class="org-right">ID</td>
+<td class="org-left">PAPER</td>
+<td class="org-left">TAXONOMY</td>
+<td class="org-left">LEVEL 0</td>
+<td class="org-left">LEVEL 1</td>
+<td class="org-left">LEVEL 2</td>
+<td class="org-left">LEVEL 3</td>
+<td class="org-left">LEVEL 4</td>
+<td class="org-left">METRIC</td>
+<td class="org-left">KEY WORD</td>
+<td class="org-left">DEFINITION</td>
+<td class="org-left">SCALE</td>
+<td class="org-left">SCOPE</td>
+<td class="org-left">AUTOMATION</td>
+<td class="org-left">MEASUREMENT</td>
+<td class="org-left">WHAT?</td>
+<td class="org-left">USABLE</td>
+<td class="org-left">EXECUTION TIME</td>
+<td class="org-left">INFORMATION OBTAINED</td>
+<td class="org-left">REASON</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring User Vulnerabilities</td>
+<td class="org-left">Password Vulnerabilities</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Entropy</td>
+<td class="org-left">PASSWORD</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">USER</td>
+<td class="org-left">AUTOMATIC</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">-</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This could be used with keys instead of passwords to measure randomness</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*</td>
+<td class="org-left">This information was induced by me</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Interface-Induced Vulnerabilities</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Attack surface</td>
+<td class="org-left">SURFACE</td>
+<td class="org-left">It aim to measure the ways by which an attacker can compromise a targeted software</td>
+<td class="org-left">ABSOLUTE</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Temporal Attributes of Vulnerabilities</td>
+<td class="org-left">Evolution of vulnerabilities</td>
+<td class="org-left">-</td>
+<td class="org-left">Historical vulnerability metric</td>
+<td class="org-left">VULNERABILITY</td>
+<td class="org-left">It measures the degree that a system is vulnerable (i.e., frequency of vulnerabilities) in the past</td>
+<td class="org-left">RATIO BSOLUTE ISTRIBUTION</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This could be part of a checklist of task, to check if there is any vulnerability that affects the device</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Temporal Attributes of Vulnerabilities</td>
+<td class="org-left">Evolution of vulnerabilities</td>
+<td class="org-left">-</td>
+<td class="org-left">Historically exploited vulnerability metric</td>
+<td class="org-left">VULNERABILITY</td>
+<td class="org-left">It measures the number of vulnerabilities exploited in the past</td>
+<td class="org-left">RATIO BSOLUTE ISTRIBUTION</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This could be part of a checklist of task, to check if there is any vulnerability that affects the device</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Temporal Attributes of Vulnerabilities</td>
+<td class="org-left">Evolution of vulnerabilities</td>
+<td class="org-left">-</td>
+<td class="org-left">Tendency-to-be-exploited metric</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It measures the tendency that a vulnerability may be exploited, where the “tendency” may be derived from information sources such as posts on Twitter before vulnerability disclosures</td>
+<td class="org-left">RATIO BSOLUTE ISTRIBUTION</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This research work might not be part of a security evaluation, but could be applied if so</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">Exploitability Metrics</td>
+<td class="org-left">Attack vector</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Describes whether a vulnerability can be exploited remotely, adjacently, locally, or physically (i.e., attacker must have physical access to the computer)</td>
+<td class="org-left">NOMINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">Exploitability Metrics</td>
+<td class="org-left">Attack complexity</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Describes the conditions that must hold before an attacker can exploit the vulnerability, such as low or high</td>
+<td class="org-left">ORDINA</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">17</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">Exploitability Metrics</td>
+<td class="org-left">Privilege required</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Describes the level of privileges that an attacker must have in order to exploit a vulnerability, such as none, low, or high</td>
+<td class="org-left">ORDINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">Exploitability Metrics</td>
+<td class="org-left">User interaction</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Describes whether the exploitation of a vulnerability requires the participation of a user (other than the attacker), such as none or required</td>
+<td class="org-left">NOMINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">19</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">Exploitability Metrics</td>
+<td class="org-left">Authorization scope</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Describes whether or not a vulnerability has an impact on resources beyond its privileges (e.g., sandbox or virtual machine), such as unchanged or changed</td>
+<td class="org-left">NOMINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">20</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">Impact Metrics</td>
+<td class="org-left">Confidentiality impact</td>
+<td class="org-left">CONFIDENTIALITY</td>
+<td class="org-left">The impact of a successful exploitation of a vulnerability in terms of confidentiality such as none, low, high</td>
+<td class="org-left">ORDINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">21</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">Impact Metrics</td>
+<td class="org-left">Integrity impact</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The impact of a successful exploitation of a vulnerability in terms of integrity such as none, low, high</td>
+<td class="org-left">ORDINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">22</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">Impact Metrics</td>
+<td class="org-left">Availability impact</td>
+<td class="org-left">AVAILABILITY</td>
+<td class="org-left">The impact of a successful exploitation of a vulnerability in terms of availability, such as none, low, high</td>
+<td class="org-left">ORDINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">23</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">CVSS Temporal Metrics</td>
+<td class="org-left">Exploit code maturity</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The likelihood a vulnerability can be attacked based on the current exploitation techniques, such as undefined, unproven, proof-of-concept, functional, or high</td>
+<td class="org-left">ORDINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">24</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">CVSS Temporal Metrics</td>
+<td class="org-left">Remediation level</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Describes whether or not a remediation method is available for a given vulnerability, such as undefined, unavailable, workaround, temporary fix, or official fix</td>
+<td class="org-left">NOMINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">25</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">CVSS Temporal Metrics</td>
+<td class="org-left">Report confidence</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Measures the level of confidence for a given vulnerability as well as known technical details, such as unknown, reasonable, or confirmed</td>
+<td class="org-left">NOMINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">26</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of Individual Software Vulnerabilities</td>
+<td class="org-left">CVSS Base</td>
+<td class="org-left">CVSS Environmental Metrics</td>
+<td class="org-left">Security requirement</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Describes environment-dependent security requirements in terms of confidentiality, integrity, and availability, such as not defined, low, medium, or high</td>
+<td class="org-left">NOMINAL</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">For calculating new vulnerabilities, or to know each dimension of known vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">29</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of a Collection of Vulnerabilities</td>
+<td class="org-left">Deterministic Severity Metrics (attack graphs)</td>
+<td class="org-left">Effort metrics</td>
+<td class="org-left">Necessary defense metric</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It estimates a minimal set of defense countermeasures necessary for thwarting a certain attack</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related with the defenses that are necesary to implement so the system is secure for a certain vulnerability</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">30</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of a Collection of Vulnerabilities</td>
+<td class="org-left">Deterministic Severity Metrics (attack graphs)</td>
+<td class="org-left">Effort metrics</td>
+<td class="org-left">Effort-to-security-failure metric</td>
+<td class="org-left">EFFORT</td>
+<td class="org-left">It measures an attacker’s effort to reach its goal state</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Although it might be difficult to estimate, this could be also included in the evaluation process</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">31</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of a Collection of Vulnerabilities</td>
+<td class="org-left">Deterministic Severity Metrics (attack graphs)</td>
+<td class="org-left">Effort metrics</td>
+<td class="org-left">Weakest adversary metric</td>
+<td class="org-left">EFFORT</td>
+<td class="org-left">It estimates minimum adversary capabilities required to achieve an attack goal</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the effort can be calculated in an objective manner, this could be used in embedded systems</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">33</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of a Collection of Vulnerabilities</td>
+<td class="org-left">Probabilistic Severity Metrics</td>
+<td class="org-left">Metrics treating CVSS scores as atomic parameters</td>
+<td class="org-left">Likelihood of exploitation</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It measures the probability that an exploit will be executed by an attacker with certain capabilities</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related with statistics and risk assessment. It could be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">34</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Vulnerability metrics</td>
+<td class="org-left">Measuring Software Vulnerabilities</td>
+<td class="org-left">Severity of a Collection of Vulnerabilities</td>
+<td class="org-left">Probabilistic Severity Metrics</td>
+<td class="org-left">Metrics not treating CVSS scores as atomic parameters</td>
+<td class="org-left">Effective base metric / scope</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Given an attack graph and a subset of exploits, the effective base metric aims to adjust the CVSS base metric by taking the highest value of the ancestors of an exploit to reflect the worst-case scenario, while the effective base score metric is calculated based on the effective base metric</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">35</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Strength of Preventive Defenses</td>
+<td class="org-left">Metrics for Blacklisting</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Reaction time metric</td>
+<td class="org-left">TIME</td>
+<td class="org-left">It captures the delay between the observation of the malicious entity at time t and the blacklisting of the malicious entity at time t (i.e., t − t)</td>
+<td class="org-left">ABSOLUTE</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the device has any kind of detection mechanism, this could be used. Detection and reaction might have different times</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">36</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Strength of Preventive Defenses</td>
+<td class="org-left">Metrics for Blacklisting</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Coverage metric</td>
+<td class="org-left">COVERAGE</td>
+<td class="org-left">It estimates the portion of blacklisted malicious players</td>
+<td class="org-left">ORDINAL</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This could be used, but the device has to have a blacklist</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">37</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Strength of Preventive Defenses</td>
+<td class="org-left">Metrics for DEP</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">NO METRIC IS DEFINED</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">No metrics have been defined to measure the effectiveness of DEP. The effectiveness of DEP can be measured based on the probability of being compromised by a certain attack A(t) over all possible classes of attacks</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">No metric is defined</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">38</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Strength of Preventive Defenses</td>
+<td class="org-left">Metrics for CFI</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Average indirect target reduction</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It counts the overall reduction of targets for any indirect control-flow transfer. It measures the overall reduction in terms of the number of targets exploitable by the attacker where smaller targets are more secure</td>
+<td class="org-left">ABSOLUTE</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">39</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Strength of Preventive Defenses</td>
+<td class="org-left">Metrics for CFI</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Average target size</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio between the size of the largest target and the number of targets</td>
+<td class="org-left">-</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">40</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Strength of Preventive Defenses</td>
+<td class="org-left">Metrics for CFI</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Evasion resistance</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It is measured against control flow bending attacks, reflecting the effort (or premises) that an attacker must make (or satisfy) for evading the CFI scheme</td>
+<td class="org-left">-</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">41</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Measuring the Strength of Reactive Defenses</td>
+<td class="org-left">Metrics for Monitoring</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Coverage metric</td>
+<td class="org-left">COVERAGE</td>
+<td class="org-left">It measures the fraction of events detectable by a specific sensor deployment, reflecting a defender’s need in monitoring events</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">42</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Measuring the Strength of Reactive Defenses</td>
+<td class="org-left">Metrics for Monitoring</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Redundancy metric</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It estimates the amount of evidence provided by a specific sensor deployment to detect an event</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This can be applied to devices as a whole, to check any mechanism of intrusion detection (mostly, tanti-tampering and software)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">43</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Measuring the Strength of Reactive Defenses</td>
+<td class="org-left">Metrics for Monitoring</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Confidence metric</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It measures how well-deployed sensors detect an event in the presence of compromised sensors</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This can be applied to devices as a whole, to check any mechanism of intrusion detection (mostly, tanti-tampering and software)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">45</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Measuring the Strength of Reactive Defenses</td>
+<td class="org-left">Metrics for Detection Mechanisms</td>
+<td class="org-left">Individual Strength of Defense Mechanisms</td>
+<td class="org-left">-</td>
+<td class="org-left">Detection time</td>
+<td class="org-left">TIME</td>
+<td class="org-left">For instrument-based attack detection, this metric is used to measure the delay between the time t0 at which a compromised computer sends its first scan packet and the time t that a scan packet is observed by the instrument</td>
+<td class="org-left">-</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">UNKNOWN</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">57</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Measuring the Strength of Proactive Defenses</td>
+<td class="org-left">Address Space Layout Randomization (ASLR)</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">ASLR-induced Effective entropy metric</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Measure of entropy in user space memory which quantitatively considers an adversary’s ability to leverage low entropy regions of memory via absolute and dynamic inter-section connections</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">OS</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the device runs an OS, this could be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">59</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Defense metrics</td>
+<td class="org-left">Measuring the Strength of Overall Defenses</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Penetration resistance (PR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Running a penetration test to estimate the level of effort (e.g., person-day or cost) required for a red team to penetrate into a system</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE ETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Penetration testing is a really common way to test this kind of device</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">82</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Situation metrics</td>
+<td class="org-left">Measuring Security State</td>
+<td class="org-left">Model-Driven Metrics</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Probability a computer is compromised at time t</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It quantifies the degree of security in enterprise systems by using modeling techniques based on a holistic perspective</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE ETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Although this is a network-oriented metric, this might be adapted to be used with an embedded system</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">85</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Situation metrics</td>
+<td class="org-left">Measuring Security Incidents</td>
+<td class="org-left">Frequency of Security Incidents</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Blocking rate</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The rate an encountered attack is successfully defended by a deployed defense</td>
+<td class="org-left">-</td>
+<td class="org-left">NETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Although this is a network-oriented metric, this might be adapted to be used with an embedded system  (maybe for a penetration test)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">89</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Situation metrics</td>
+<td class="org-left">Measuring Security Incidents</td>
+<td class="org-left">Frequency of Security Incidents</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Time-to-first-compromise metric</td>
+<td class="org-left">TIME</td>
+<td class="org-left">Estimates the duration of time between when a computer starts to run and the first malware alarm is triggered on the computer where the alarm indicates detection rather than infection</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This can be used in embedded systems, but it might not be suitable for a security evaluation (maybe for a penetration test)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">96</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">Without Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Attack Impact</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It is the quantitative measure of the potential harm caused by an attacker to exploit a vulnerability</td>
+<td class="org-left">-</td>
+<td class="org-left">NETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">97</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">Without Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Attack Cost</td>
+<td class="org-left">COST</td>
+<td class="org-left">It is the cost spent by an attacker to successfully exploit a vulnerability (i.e., security weakness) on a host</td>
+<td class="org-left">-</td>
+<td class="org-left">NETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC YNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related to network, but this could be applicable to devices too</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">100</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">Without Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Mean-time-to-compromise (MTTC)</td>
+<td class="org-left">TIME</td>
+<td class="org-left">It is used to measure how quickly a network can be penetrated</td>
+<td class="org-left">-</td>
+<td class="org-left">NETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is no directly applicable, but its equivalent would be a penetration attack in an embedded system</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">101</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">Without Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Mean-time-to-recovery (MTTR)</td>
+<td class="org-left">TIME</td>
+<td class="org-left">It is used to assess the effectiveness of a network to recovery from an attack incidents. It is defined as the average amount of time required to restore a system out of attack state</td>
+<td class="org-left">-</td>
+<td class="org-left">NETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Although this is developed for networks, the same concept can be translated into embeded systems</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">105</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">Without Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Return on Attack</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The gain the attacker expects from successful attack over the losses he sustains due to the countermeasure deployed by his target</td>
+<td class="org-left">-</td>
+<td class="org-left">NETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Network-related, but it scent can be translated into embedded systems</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">106</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">With Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Common Vulnerability Scoring System (CVSS) - Overall value</td>
+<td class="org-left">VULNERABILITY</td>
+<td class="org-left">The overall score is determined by generating a base score and modifying it through the temporal and environmental formulas</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This could be used tohether with other metics to obtain a numeric value</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">107</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">With Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Probability of Vulnerability Exploited</td>
+<td class="org-left">VULNERABILITY</td>
+<td class="org-left">It is used to assess the likelihood of an attacker exploiting a specific vulnerability on a host</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE ARDWARE ETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Network-related metric. This is also related to risk assessment. Can be traslated into embedded systems</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">108</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">With Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Probability of attack detection</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It is used to assess the likelihood of a countermeasure to successfully identify the event of an attack on a target</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE ARDWARE ETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DYNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Network-related metric. This is also related to risk assessment. Can be traslated into embedded systems</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">109</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Host-based</td>
+<td class="org-left">With Probability Values</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Probability of host compromised</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It is used to assess the likelihood of an attacker to successfully compromise a target</td>
+<td class="org-left">-</td>
+<td class="org-left">HARDWARE OFTWARE ETWORK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">STATIC YNAMIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Network-related metric. This is also related to risk assessment. Can be traslated into embedded systems</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">137</td>
+<td class="org-right">4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of bits leaked (mean privacy)</td>
+<td class="org-left">DATA</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">NETWORK</td>
+<td class="org-left">SEMI-AUTOMATIC</td>
+<td class="org-left">STATIC</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If adapted, this metric can be used to test memory related vulnerabilities</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">139</td>
+<td class="org-right">5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">NO</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">rav</td>
+<td class="org-left">OPSEC</td>
+<td class="org-left">It is a scale measurement of the attack surface, the amount of uncontrolled interactions with a target, which is calculated by the quantitative balance between operations, limitations, and controls</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">141</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Churn</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Churn</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Count of Source Lines of Code that has been added or changed in a component since the previous revision of the software</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">148</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Churn</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Relative churn</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Normalized by parameters such as lines of code, files counts</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">149</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Churn</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Repeat frequency</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The number of consecutive edits that are performed on a binary</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">150</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Churn</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Total churn</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The total added, modified, and deleted lines of code of a binary during the development</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">155</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Cyclomatic number</td>
+<td class="org-left">CODE</td>
+<td class="org-left">M = E − N + P, where E = the number of edges of the graph. N = the number of nodes of the graph. P = the number of connected components.</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">158</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Fan in (FI)</td>
+<td class="org-left">COUPLING</td>
+<td class="org-left">Number of inputs a function uses. Inputs include parameters and global variables that are used (read) in the function / Number of functions calling a function</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">159</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Fan out (FO)</td>
+<td class="org-left">COUPLING</td>
+<td class="org-left">Number of outputs that are set. The outputs can be parameters or global variables (modified) / Number of functions called by a function</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">162</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Max fan in</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The largest number of inputs to a function such as parameters and global variables</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">163</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Max fan out</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The largest number of assignment to the parameters to call a function or global variables</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">164</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">MaxMaxNesting</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The maximum of MaxNesting in a file</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">165</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">MaxNesting</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Maximum nesting level of control constructs such as if or while statements in a function</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">166</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Nesting complexity</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Maximum nesting level of control constructs (if, while, for, switch, etc.) in the function</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">167</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of children (NOC)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Number of immediate sub-classes of a class or the count of derived classes. If class CA inherits class CB, then CB is the base class and CA is the derived class. In other words, CA is the children of class CB, and CB is the parent of class CB.</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">168</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">SumCyclomaticStrict</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The sum of the strict cyclomatic complexity, where strict cyclomatic complexity is defined as the number of conditional statements in a function</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">169</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">SumEssential</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The sum of essential complexity, where essential complexity is defined as the number of branches after reducing all the programming primitives such as a for loop in a function’s control flow graph into a node iteratively until the graph cannot be reduced any further. Completely well-structured code has essential complexity 1</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">170</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">SumFanIn</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The sum of FanIn, where FanIn is defined as the number of inputs to a function such as parameters and global variables</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">171</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">SumFanOut</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The sum of FanOut, where FanOut is defined as the number of assignment to the parameters to call a function or global variables</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">172</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">SumMaxNesting</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The sum of the MaxNesting in a file, where MaxNesting is defined as the maximum nesting level of control constructs such as if or while statements in a function</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">173</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">McCabe Cyclomatic Complexity</td>
+<td class="org-left">CODE</td>
+<td class="org-left">M = E − N + 2P, where E = the number of edges of the graph. N = the number of nodes of the graph. P = the number of connected components</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">174</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Complexity</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Weighted methods per class (WMC)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Number of local methods defined in the class</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">181</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Administrator and operator logs</td>
+<td class="org-left">LOG</td>
+<td class="org-left">Total number corrective actions taken after specific event is recorded in log / total number of events recorded in log * 100</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">187</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Accessor Attribute Interactions (CAAI)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the sum of all interactions between accessors and classified attributes to the possible maximum number of interactions between accessors and classified attributes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">188</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Attributes Interaction Weight (CAIW)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of all interactions with classified attributes to the total number of all interactions with all attributes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">189</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Class Data Accessibility (CCDA)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of non-private classified class attributes to the number of classified attributes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">190</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Instance Data Accessibility (CIDA)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of non-private classified instance attributes to the number of classified attributes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">191</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Method Extensibility (CME)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of the non-finalised classified methods in program to the total number of classified methods in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">192</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Methods Weight (CMW)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of classified methods to the total number of methods in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">193</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Mutator Attribute Interactions (CMAI)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the sum of all interactions between mutators and classified attributes to the possible maximum number of interactions between mutators and classified attributes in the program.</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">194</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Operation Accessibility (COA)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of non-private classified methods to the number of classified methods in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">195</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Writing Methods Proportion (CWMP)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of methods which write classified attributes to the total number of classified methods in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">196</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Composite-Part Critical Classes (CPCC)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of critical composed-part classes to the total number of critical classes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classes Design Proportion (CDP)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Ratio of the number of critical classes to the total number of classes, from the group of Design Size Metrics.</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">201</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Critical Class Extensibility (CCE)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of the non-finalised critical classes in program to the total number of critical classes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">202</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Critical Design Proportion (CDP)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of critical classes to the total number of classes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">203</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Critical Element Ratio</td>
+<td class="org-left">CODE</td>
+<td class="org-left">A  process  may  not  require  all  aspects  of  an  object  to  be  instantiated. Critical Elements Ratio = (Critical Data Elements in an Object) / (Total number of elements in the object)</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">204</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Critical Serialized Classes Proportion (CSCP)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of critical serialized classes to the total number of critical classes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">205</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Critical Superclasses Inheritance (CSI)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the sum of classes which may inherit from each critical superclass to the number of possible inheritances from all critical classes in the program’s inheritance hierarchy</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">206</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Critical Superclasses Proportion (CSP)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of critical superclasses to the total number of critical classes in the program’s inheritance hierarchy</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">212</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Isolation (PI)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">This assesses the level of security isolation between system components. This means getting privileges to a component does not imply accessibility of other co-located components. This metric can be assessed using system architecture and deployment models. Components marked as confidential should not be hosted with nonconfidential (public) components. Methods that are not marked as confidential should not have access to confidential attributes or methods</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">I am not sure if this metric can be applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">214</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Catch Blocks Per Class (NCBC)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">It measures  the  exception  handing factor (EHF) in some way.  It  is  defined  as  the  percentage  of  catch  blocks  in  a  class  over  the  theoretical  maximum  number  of  catch  blocks  in  the  class</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">215</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Percentage High-, medium- and moderate-Risk Software Hazards with Safety Requirements</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It reveals whether all high-, medium- and moderate-risk software hazards have resulted in applicable safety requirements through hazard analysis</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related to software and the design</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">218</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Percentage of Software Safety Requirements (PSSR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">How sufficient hazard analysis has been performed. (# Software Safety Requirements / # SoftwareRequirements) * 100</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related to software and the design</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">219</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Percentage of Software Safety Requirements Traceable to Hazards</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ensuring traceability to system hazards or System of Systems hazards increases the validation case. Percentage indicator of traceability of requirements. All derived software safety requirements must be traceable to system hazards or System of Systems hazards (# Traceable Software Safety Requirements / # Software Safety Requirements) * 100</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related to software and the design</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">246</td>
+<td class="org-right">11</td>
+<td class="org-left">X</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">PercentValidatedInput</td>
+<td class="org-left">INPUTS</td>
+<td class="org-left">To compute this metric, let T equal the count of the amount of input forms or interfaces the application exposes (the number of HTML form POSTs, GETs, and so on) and let V equal the number of these interfaces that use input validation mechanisms. The ratio V/T makes a strong statement about the Web application’s vulnerability to exploits from invalid input</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This could be adapted to other pieces of code, rather than just HTML</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">247</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of Design Decisions (RDD)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio of the number of design decisions related to security to the total number of design decisions of the entire system. The objective is to assess the portion of design dedicated to security</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related to design phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">248</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of Design Flaws Related to Security (RDF)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio of design flaws related to security to the total number of design flaws applicable to the whole system</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related to design phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">250</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of Implementation Errors That Have an Impact on Security (RSERR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio of the number of errors related to security to the total number of errors in the implementation of the system (i.e. NERR)</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is related to design phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">253</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of Patches Issued to Address Security Vulnerabilities (RP)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio of the number of patches that are issued to address security vulnerabilities to the total number of patches of the system</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">254</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of Security Requirements (RSR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio of the number of requirements that have direct impact on security to the total number of requirements of the system</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">255</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of Security Test Cases (RTC)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of test cases designed to detect security issues to the total number of test cases of the entire system</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">256</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of Security Test Cases that Fail (RTCP)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of test cases that detect implementation errors (i.e. the ones that fail) to the total number of test cases, designed specifically to target security issues</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">258</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of Software Changes Due to Security Considerations (RSC)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of changes in the system triggered by a new set of security requirements. Software changes due to security considerations include patches that are released after a system is delivered, or any other security updates</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">261</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of the Number of Omitted Exceptions (ROEX)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio of the number of omitted exceptions (i.e. Noex) to the total number of exceptions that are related to security</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">262</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Ratio of the Number of Omitted Security Requirements (ROSR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio of the number of security requirements that have not been considered during the analysis phase (i.e. NOSR) to the total number of security requirements identified during the analysis phase (NSR)</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">269</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Software Hazard Analysis Depth</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Hazardous software, or safety-critical software, allocated as high- or medium-risk, according to the Software Hazard Criticality Matrix, requires analysis of second- and third-order causal factors (should they exist)</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Hazard is similar to risk.</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">273</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Unaccessed Assigned Classified Attribute (UACA)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The ratio of the number of classified attributes that are assigned but never used to the total number of classified attributes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">274</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Uncalled Classified Accessor Method (UCAM)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The ratio of the number of classified methods that access a classified attribute but are never called by other methods to the total number of classified methods in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">275</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Coverage</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Unused Critical Accessor Class (UCAC)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The ratio of the number of classes which contain classified methods that access classified attributes but are never used by other classes to the total number of critical classes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">284</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Attributes Inheritance (CAI)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of classified attributes which can be inherited in a hierarchy to the total number of classified attributes in the program’s inheritance hierarchy</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">285</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Methods Inheritance (CMI)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of classified methods which can be inherited in a hierarchy to the total number of classified methods in the program’s inheritance hierarchy</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">286</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Coupling</td>
+<td class="org-left">COUPLING</td>
+<td class="org-left">Measures the following three coupling dimensions between modules: referential dependency, structural dependency, and data integrity dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">288</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Coupling Between Object classes (CBOC)</td>
+<td class="org-left">COUPLING</td>
+<td class="org-left">Number of other classes coupled to a class C</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">290</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Coupling Corruption Propagation</td>
+<td class="org-left">COUPLING</td>
+<td class="org-left">Coupling   corruption   propagation   is   meant   to   measure  the  total  number  of  methods  that  could  be  affected  by  erroneous originating method. Coupling  Corruption  Propagation  =  Number  of  child  methods  invoked  with  the  parameter(s)  based  on  the  parameter(s)  of  the  original invocation</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">291</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Critical Classes Coupling (CCC)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The ratio of the number of all classes’ links with classified attributes to the total number of possible links with classified attributes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs. If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">292</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Depth of Inheritance Tree (DIT)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Maximum depth of the class in the inheritance tree</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">301</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Lack of cohesion of methods (LCOM)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The LCOM value for a class C is defined as LCOM(C) = (1- \E(C)\ ÷ (\V(C)\ × \M(C)\)) × 100%, where V(C) is the set of instance variables, M(C) is the set of instance methods, and E(C) is the set of pairs (v,m) for each instance variable v in V(C) that is used by method m in M(C)</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">304</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">NumCalls</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The number of calls to the functions defined in an entity</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">312</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Reflection Package Boolean (RPB)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">A boolean value representing whether the Java program imports the reflection package (1) or not (0)</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Vulnerability Propagation (VP)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Vulnerability Propagation (VP) of a class C, denoted by VP(C), is the set containing classes in the hierarchy which directly or indirectly inherit class C. Cardinality of set VP(C) represents the number of classes which have become vulnerable due to class C. Alternatively, Vulnerability Propagation of a class C is the total number of classes which directly or indirectly inherit class C.</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This metric can be applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">315</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Vulnerability Propagation Factor (VPF)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">An Inheritance hierarchy may contain no class or one or more vulnerable classes. Also, there are more than one Inheritance hierarchies present in a design. So, calculation of Vulnerability Propagation Factor (VPF) of a design requires calculation of Vulnerability Propagation due to each vulnerable class in Inheritance hierarchies present in the design. Then, union of Vulnerability Propagation due to each vulnerable class will give overall Vulnerability Propagation in design.</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This metric can be applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">316</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Access Complexity (AC)</td>
+<td class="org-left">ACCESS</td>
+<td class="org-left">This metric measures the complexity of attacks exploiting the vulnerability. A vulnerability with low complexity can be for example a buffer overflow in a web server, the vulnerability can be exploited at will</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">317</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Access Vector (AV)</td>
+<td class="org-left">ACCESS</td>
+<td class="org-left">This metric indicates from where an attacker can exploit the vulnerability</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">320</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Authentication (AU)</td>
+<td class="org-left">AUTHENTICATION</td>
+<td class="org-left">This metric counts how often an attacker must authenticate before the vulnerability can be exploited</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">322</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Damage potential-effort ratio</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It indicates the level of damage an attacker can potentially cause to the system and the effort required for the attacker to cause such damage</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">DYNAMIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It seems that it can be applied to embeded systems, but I am not sure if it is applicable in the evaluation phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">324</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">ExclusiveExeTime</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Execution time for the set of functions, S, defined in an entity excluding the execution time spent by the functions called by the functions in S</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">327</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">InclusiveExeTime</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Execution time for the set of functions, S, defined in an entity including all the execution time spent by the functions called directly or indirectly by the functions in S</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">332</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Protection Rate (PR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It expresses the efficiency of security mechanisms. Percentage of the known vulnerabilities protected by a given security mechanism. It is based on the Attack Surface metric. PR = (1 - AttackSurfaceEvaluatedSystem / AttackSurfaceReferenceSystem) * 100</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">DYNAMIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This metric was developed specificaly for OSGi platform, but I think it can be adapted to be applied to embedded systems</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">334</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Side-channel Vulnerability Factor (SVF)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SVF quantifies patterns in attackers’ observations and measures their correlation to the victim’s actual execution patterns and in doing so captures systems’ vulnerability to side-channel attacks. we can measure information leakage by computing the correlation between ground-truth patterns and attacker observed patterns. We call this correlation Side-channel Vulnerability Factor (SVF). SVF measures the signal-to-noise ratio in an attacker’s observations. While any amount of leakage could compromise a system, a low signal-to-noise ratio means that the attacker must either make do with inaccurate results (and thus make many observations to create an accurate result) or become much more intelligent about recovering the original signal. We use phase detection techniques to find patterns in both sets of data then compute the correlation between actual patterns in the victim and observed patterns.</td>
+<td class="org-left">-</td>
+<td class="org-left">HARDWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">DYNAMIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Embedded devices can be vulnerable to side-channel attacks and they can be tested</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">336</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Structural severity</td>
+<td class="org-left">RISK</td>
+<td class="org-left">Measure that uses software attributes to evaluate the risk of an attacker reaching a vulnerability location from attack surface entry points. It is measured based on three values: high (reachable from an entry point), medium (reachable from an entry point with no dangerous system calls), low (not reachable from any entry points)</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">DYNAMIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">I am not sure if this metric can be applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Vulnerability Index (VI)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Probability of a component’s vulnerability being exposed in a single execution</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">MANUAL*</td>
+<td class="org-left">DYNAMIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It seems that it can be applied to embeded systems, but I am not sure if it is applicable in the evaluation phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Effort</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Effective Vulnerability Index (EVI)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Relative measure of the impact of a component on the system’s insecurity</td>
+<td class="org-left">-</td>
+<td class="org-left">DEVICE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">DYNAMIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It seems that it can be applied to embeded systems, but I am not sure if it is applicable in the evaluation phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">361</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Attributes Total (CAT)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The total number of classified attributes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">362</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Classified Methods Total (CMT)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The total number of classified methods in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">366</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Count of Base Classes (CBC)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of base classes</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">367</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Critical Classes Total (CCT)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The total number of critical classes in the program</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Object-oriented programs</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">378</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Design Decisions Related to Security (NDD)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The proposed metric aims at assessing the number of design decisions that address the security requirements of the system. During the design phase, it is common to end up with multiple solutions to the same problem. Software engineers make many design decisions in order to choose among alternative design solutions.</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">383</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of global variables *</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">390</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of return points in the method</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">391</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Security Algorithms (NSA)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of security algorithms that are supported by the application</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied, but this metric can be used in finals stages of the development life-cycle</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">393</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Security Requirements (NSR) *</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of security requirements identified during the analysis phase of the application</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">MANUAL</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">394</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of sub classes</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">395</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">NumFunctions</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">400</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Response set for a Class (RFC)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Set of methods that can potentially be executed in response to a message received by an object of that class. RFC is simply the number of methods in the set, including inherited methods</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">402</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Size</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Stall Ratio</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Stall  ratio  is  a  measure  of  how  much  a  program’s  progress  is  impeded  by  frivolous  activities. stall ratio = (lines of non-progressive statements in a loop) / (total lines in the loop)</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">409</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Comment ratio</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ratio of number of comment lines to number of code lines</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">410</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">CommentDensity</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The ratio of lines of comments to lines of code</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">411</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Compartmentalization</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Compartmentalization means that systems and their components run in different compartments, isolated from each other. Thus a compromise of any of them does not impact the others. This metric can be measured as the number of independent components that do not trust each other (performs authentication and authorization for requests/calls coming from other system components) that the system is based on to deliver its function. The higher the compartmentalization value, the more secure the system</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">415</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Defense-In-Depth</td>
+<td class="org-left">CODE</td>
+<td class="org-left">This metric verifies that security controls are used at different points in the system chain including network security, host security, and application security. Components that have critical data should employ security controls in the network, host, and component layers. To assess this metric we need to capture system architecture and deployment models as well as the security architecture model. Then we can calculate the ratio of components with critical data that apply the layered security principle compared to number of critical components</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">I am not sure if this metric can be applied to embedded software, or at verification phases</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">417</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Fail Securely</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The system does not disclose any data that should not be disclosed ordinarily at system failure. This includes system data as well as data about the system in case of exceptions. This metric can be evaluated from the security control responses – i.e. how the control behaves in case it failed to operate. From the system architecture perspective, we can assess it as the number of critical attributes and methods that can be accessed in a given component. The smaller the metric value, the likely more secure the system in case of failure</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This could be used in evaluation</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">421</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Isolation (PI)</td>
+<td class="org-left">CODE</td>
+<td class="org-left">This assesses the level of security isolation between system components. This means getting privileges to a component does not imply accessibility of other co-located components. This metric can be assessed using system architecture and deployment models. Components marked as confidential should not be hosted with nonconfidential (public) components. Methods that are not marked as confidential should not have access to confidential attributes or methods</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">I am not sure if this metric can be applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">423</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Least Privilege</td>
+<td class="org-left">CODE</td>
+<td class="org-left">This metric states that each component and user should be granted the minimal privileges required to complete their tasks. This metric can be assessed from two perspectives: from the security controls perspective we can review users’ granted privileges. From the architectural analysis perspective this can be assessed as how the system is broken down to minimal possible actions i.e. the number of components that can access critical data. The smaller the value, the more secure the system</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the software is available, it can be applied. It can be also applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">431</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Trustworthiness</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Trustworthiness of software means its worthy of being trusted to fulfill requirements which may be needed for a particular software component, application, system, or network. It involves attributes of stability, data security, quality, privacy, safety and so on. Software trustworthiness is interrelated with not only risk control in the software process, but also the quality management of the software development process. Furthermore, vision is needed to avoid excessive costs and schedule delays in development and risks management costs in operation; to improve development efforts; and above all</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">-</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">433</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Strength</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Variable Security Vulnerability</td>
+<td class="org-left">CODE</td>
+<td class="org-left">The security vulnerability of a variable v@l is determined by the combined security damage it might cause to the overall system security when v@l is attacked. The more security properties that can be left intact, the less vulnerable the variable is; on the other hand, the more security properties are violated, the more criticall the variable is.</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is only applicable if the source code is available</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">449</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Faults found during manual inspection</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It is related to software and it can be applied to embedded software</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">458</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Design Flaws Related to Security (NSDF)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Security-related design flaws occur when software is planned and specified without proper consideration of security requirements and principles. For instance, clear-text passwords are considered as design flaws. Design flaws can be detected using design inspection techniques (e.g., design reviews). Identifying the number of design flaws related to security can help detect security issues earlier in the design process</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">459</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Exceptions That Have Been Implemented to Handle Execution Failures Related to Security (NEX)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of exceptions that have been included in the code to handle possible failures of the system due to an error in a code segment that has an impact on security</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">462</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Implementation Errors Found in the System (NERR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of implementation errors of the system</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Related to the implementation phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">463</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Implementation Errors Related to Security (NSERR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of implementation errors of the system that have a direct impact on security. One of the most common security related implementation errors is the buffer overflow</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Related to the implementation phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">464</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Omitted Exceptions for Handling Execution Failures Related to Security (NOEX)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of missing exceptions that have been omitted by software engineers when implementing the system. These exceptions can easily be determined through testing techniques.</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Related to the implementation phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">465</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of Omitted Security Requirements (NOSR)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of requirements that should have been considered when building the application</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">If the design is available, it can be applied</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">471</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Number of violations of the LP principle</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Number of violations of the Least Privilege principle. A component does not adhere to LP if it, based upon the permissions attributed as described before, is capable of executing tasks it is not responsible for</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOCATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This could be used in embedded systems</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">473</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Percentage Software Hazards (PSH)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Comparing the number of software hazards identified against historical data, it indicates the sufficiency of the software hazard identification based on the identified hazards. (# software hazards / # System hazards ) * 100</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SÍ</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Hazard is similar to risk.</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">480</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Static analysis alert count (number of)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">488</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Vulnerability Density</td>
+<td class="org-left">CODE</td>
+<td class="org-left">Number of vulnerabilities in the unit size of a code. VD = size of the software / # vulnerabilities in the system</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">SEMI-AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">It seems that it can be applied to embeded systems, but I am not sure if it is applicable in the evaluation phase</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">494</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security metrics of Arithmetic Expression</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The security flaws of arithmetic expression include divide by zero, overflow of arithmetic operation, misused data type of arithmetic expression, and truncation error of arithmetic operation</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified. Part of a checklist</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">495</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of Array Index</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The security flaws of array index include index out of range, incorrect index variable and uncontrollable array index</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified. Part of a checklist</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">496</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of Component Interfaces</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The security flaws of component interface include inconsistent parameter numbers, inconsistent data types, and inconsistent size of data types</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified. Part of a checklist</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">497</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of  Control Operation</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The security flaws of control operations include infinite loop, deadlock situations and boundary defects</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified. Part of a checklist</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">498</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of I/O Management</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">File is an important media which can store critical information and record log data. However, file privilege definition, file access management, file contents, file organization and file size are major factors to affect the security software operation</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified. Part of a checklist</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">499</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of Input Format</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The security flaws of data format include mismatched data contents, mismatched data type, mismatch data volume</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified. Part of a checklist</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">500</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of Kernel Operation</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">A released software system must be adapted to a suitable operating system and environment. The kernel of operating system and environment become a critical factor to affect the operating security of software system. Resource management, execution file protection, main memory control and process scheduling are major tasks of operating system. The security flaws, which embedded in the tasks of operating system, become high security risk for software system operation</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified. Checklist. Only when there is an OS</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">501</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of Network Environment</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Network environment is a critical tool in the e-commerce years. However, data transmission management, remote access control, and transmission contents always become the security holes of software system operation</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">502</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of Resources Allocation</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The security flaws of resource allocation include exhausted memory, unreleased memory exhausted resources, and unreleased resources</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">503</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Dependency*</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Security Metrics of User Authority</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Many users may use the released system to do specific jobs. However, user privilege definition, user password management and user detailed information maintenance are important tasks to control and manage the user authority. Without user authority control and management, the operation environment of software system will be on high security risk</td>
+<td class="org-left">-</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">AUTOMATIC*</td>
+<td class="org-left">STATIC*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">¿?</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">This is not a metric, but a group of them. Individually, they could be used if they are specified</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">526</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">YES</td>
+<td class="org-left">Weakness</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-left">Kolmogorov Complexity</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SOFTWARE</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Angel Longueira</p>
+<p class="date">Created: 2020-04-28 Tue 17:13</p>
+</div>
+</body>
+</html>

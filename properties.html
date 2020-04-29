@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Embedded Security Metrics - Properties</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/mine.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700,400" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#df013a">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <script type="text/javascript">
+      var shiftWindow = function() { scrollBy(0, -70) };
+      if (location.hash) shiftWindow();
+      window.addEventListener("hashchange", shiftWindow);
+    </script> 
+    <style type="text/css">
+
+path.arc {
+  cursor: move;
+  fill: #fff;
+}
+
+.node {
+  font-size: 10px;
+}
+
+.node:hover {
+  fill: #1f77b4;
+}
+
+.link {
+  fill: none;
+  stroke: #1f77b4;
+  stroke-opacity: .4;
+  pointer-events: none;
+}
+
+.link.source, .link.target {
+  stroke-opacity: 1;
+  stroke-width: 2px;
+}
+
+.node.target {
+  fill: #d62728 !important;
+}
+
+.link.source {
+  stroke: #d62728;
+}
+
+.node.source {
+  fill: #2ca02c;
+}
+
+.link.target {
+  stroke: #2ca02c;
+}
+
+    </style>
+  </head>
+
+
+
+
+
+  <body style="padding-top: 70px">
+    <nav class="navbar navbar-inverse navbar-fixed-top">   
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>    
+          <a class="navbar-brand" href="index.html" data-toggle="collapse" data-target=".navbar-collapse.in">
+            <span class="fa fa-bookmark" aria-hidden="true" style="color:#DF013A"></span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html" data-toggle="collapse" data-target=".navbar-collapse.in">Research</a></li>
+            <li><a href="analysis.html" data-toggle="collapse" data-target=".navbar-collapse.in">Security Metrics Analysis</a></li>
+            <li><a href="properties.html" data-toggle="collapse" data-target=".navbar-collapse.in">Properties of a Good Metric</a></li>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-md-12 col-xs-12">
+              <h1><strong>Properties of a Good Metric</strong></h1>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 col-lg-push-8 col-md-4 col-md-push-8 col-sm-3 col-sm-push-9 col-xs-12 col-xs-push-0">
+              <img src="/images/embedded.png" width="200" alt="">
+            </div>
+            <div class="col-lg-8 col-lg-pull-4 col-md-8 col-md-pull-4 col-sm-9 col-sm-pull-3 col-xs-12 col-xs-offset-0">              
+              <div class="section" id="table-of-contents">
+                <h2>Introduction</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum id odio fermentum accumsan. Ut sit amet blandit velit, in varius felis. Quisque sed quam erat. Cras eleifend magna quis lobortis commodo. Donec nibh augue, rutrum at tincidunt et, commodo in dolor. Proin dolor felis, pellentesque ac risus a, ullamcorper aliquam purus. Pellentesque a eros sit amet lectus facilisis euismod. Nulla pulvinar fringilla malesuada. Vivamus felis odio, tincidunt non euismod eget, placerat in sem. Integer venenatis sem a arcu lacinia interdum. Proin eu dignissim massa. Sed cursus luctus massa, a lobortis neque venenatis eu. Donec a imperdiet nisi. Quisque maximus mi in bibendum mollis. Donec pretium neque enim, in aliquet diam mattis sed.
+                </p>
+              </div>
+              <div class="section" id="what-is-this">
+                <h2>Chord Diagram</h2>
+                <p>
+                  Donec nunc risus, pretium ut lectus in, tristique sodales ex. Duis vestibulum massa et aliquet mollis. Nulla vitae porttitor lectus. Nullam lobortis hendrerit arcu eget mattis. Sed in efficitur ipsum. Quisque laoreet laoreet maximus. Aliquam tincidunt suscipit volutpat.
+                </p>
+              </div>
+              <div class="section" id="what-is-this">
+                <div id="bundle"></div>
+                <div style="position:relative;bottom:0;font-size:18px;">Tension: <input style="position:relative;top:3px;" type="range" min="0" max="100" value="85"></div>
+                <script type="text/javascript" src="//code.jquery.com/jquery-1.12.3.min.js"></script>
+                <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
+                <script type="text/javascript" src="packages.js"></script>
+                <script type="text/javascript">
+
+var w = 740,
+    h = 700,
+    rx = w / 2,
+    ry = h / 2,
+    m0,
+    rotate = 0
+    pi = Math.PI;
+
+var splines = [];
+
+var cluster = d3.layout.cluster()
+    .size([360, ry - 180])
+    .sort(function(a, b) { return d3.ascending(a.key, b.key); });
+
+var bundle = d3.layout.bundle();
+
+var line = d3.svg.line.radial()
+    .interpolate("bundle")
+    .tension(.85)
+    .radius(function(d) { return d.y; })
+    .angle(function(d) { return d.x / 180 * Math.PI; });
+
+// Chrome 15 bug: <http://code.google.com/p/chromium/issues/detail?id=98951>
+var div = d3.select("#bundle")
+    .style("width", w + "px")
+    .style("height", w + "px")
+    .style("position", "absolute");
+
+var svg = div.append("svg:svg")
+    .attr("width", w)
+    .attr("height", w)
+  .append("svg:g")
+    .attr("transform", "translate(" + rx + "," + ry + ")");
+
+svg.append("svg:path")
+    .attr("class", "arc")
+    .attr("d", d3.svg.arc().outerRadius(ry - 180).innerRadius(0).startAngle(0).endAngle(2 * Math.PI))
+    .on("mousedown", mousedown);
+
+d3.json("flare-imports.json", function(classes) {
+  var nodes = cluster.nodes(packages.root(classes)),
+      links = packages.imports(nodes),
+      splines = bundle(links);
+
+  var path = svg.selectAll("path.link")
+      .data(links)
+    .enter().append("svg:path")
+      .attr("class", function(d) { return "link source-" + d.source.key + " target-" + d.target.key; })
+      .attr("d", function(d, i) { return line(splines[i]); });
+
+  var groupData = svg.selectAll("g.group")
+    .data(nodes.filter(function(d) { return (d.key=='SAVOLA' || d.key == 'SMART' || d.key == 'PRAGMATIC') && d.children; }))
+  .enter().append("group")
+    .attr("class", "group");
+    
+  var groupArc = d3.svg.arc()
+  .innerRadius(ry - 177)
+  .outerRadius(ry - 157)
+  .startAngle(function(d) { return (findStartAngle(d.__data__.children)-2) * pi / 180;})
+  .endAngle(function(d) { return (findEndAngle(d.__data__.children)+2) * pi / 180});
+  
+  svg.selectAll("g.arc")
+  .data(groupData[0])
+.enter().append("svg:path")
+  .attr("d", groupArc)
+  .attr("class", "groupArc")
+  .style("fill", "#1f77b4")
+  .style("fill-opacity", 0.5);
+
+  svg.selectAll("g.node")
+      .data(nodes.filter(function(n) { return !n.children; }))
+    .enter().append("svg:g")
+      .attr("class", "node")
+      .attr("id", function(d) { return "node-" + d.key; })
+      .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+    .append("svg:text")
+      .attr("dx", function(d) { return d.x < 180 ? 25 : -25; })
+      .attr("dy", ".31em")
+      .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+      .attr("transform", function(d) { return d.x < 180 ? null : "rotate(180)"; })
+      .text(function(d) { return d.key.replace(/_/g, ' '); })
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout);
+
+  d3.select("input[type=range]").on("change", function() {
+    line.tension(this.value / 100);
+    path.attr("d", function(d, i) { return line(splines[i]); });
+  });
+});
+
+d3.select(window)
+    .on("mousemove", mousemove)
+    .on("mouseup", mouseup);
+
+function mouse(e) {
+  return [e.pageX - rx, e.pageY - ry];
+}
+
+function mousedown() {
+  m0 = mouse(d3.event);
+  d3.event.preventDefault();
+}
+
+function mousemove() {
+  if (m0) {
+    var m1 = mouse(d3.event),
+        dm = Math.atan2(cross(m0, m1), dot(m0, m1)) * 180 / Math.PI;
+    div.style("-webkit-transform", "translate3d(0," + (ry - rx) + "px,0)rotate3d(0,0,0," + dm + "deg)translate3d(0," + (rx - ry) + "px,0)");
+  }
+}
+
+function mouseup() {
+  if (m0) {
+    var m1 = mouse(d3.event),
+        dm = Math.atan2(cross(m0, m1), dot(m0, m1)) * 180 / Math.PI;
+
+    rotate += dm;
+    if (rotate > 360) rotate -= 360;
+    else if (rotate < 0) rotate += 360;
+    m0 = null;
+
+    div.style("-webkit-transform", "rotate3d(0,0,0,0deg)");
+
+    svg.attr("transform", "translate(" + rx + "," + ry + ")rotate(" + rotate + ")")
+      .selectAll("g.node text")
+        .attr("dx", function(d) { return (d.x + rotate) % 360 < 180 ? 25 : -25; })
+        .attr("text-anchor", function(d) { return (d.x + rotate) % 360 < 180 ? "start" : "end"; })
+        .attr("transform", function(d) { return (d.x + rotate) % 360 < 180 ? null : "rotate(180)"; });
+  }
+}
+
+function mouseover(d) {
+  svg.selectAll("path.link.target-" + d.key)
+      .classed("target", true)
+      .each(updateNodes("source", true));
+
+  svg.selectAll("path.link.source-" + d.key)
+      .classed("source", true)
+      .each(updateNodes("target", true));
+}
+
+function mouseout(d) {
+  svg.selectAll("path.link.source-" + d.key)
+      .classed("source", false)
+      .each(updateNodes("target", false));
+
+  svg.selectAll("path.link.target-" + d.key)
+      .classed("target", false)
+      .each(updateNodes("source", false));
+}
+
+function updateNodes(name, value) {
+  return function(d) {
+    if (value) this.parentNode.appendChild(this);
+    svg.select("#node-" + d[name].key).classed(name, value);
+  };
+}
+
+function cross(a, b) {
+  return a[0] * b[1] - a[1] * b[0];
+}
+
+function dot(a, b) {
+  return a[0] * b[0] + a[1] * b[1];
+}
+
+function findStartAngle(children) {
+    var min = children[0].x;
+    children.forEach(function(d) {
+       if (d.x < min)
+           min = d.x;
+    });
+    return min;
+}
+
+function findEndAngle(children) {
+    var max = children[0].x;
+    children.forEach(function(d) {
+       if (d.x > max)
+           max = d.x;
+    });
+    return max;
+}
+    </script>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="/static/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
+      <script type="text/javascript" src="https://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
+  </body>
+</html>
