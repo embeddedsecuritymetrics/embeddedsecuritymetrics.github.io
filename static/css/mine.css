@@ -1,0 +1,96 @@
+body {
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+}
+
+p {
+    text-align: justify !important;
+    padding: 2px;
+}
+
+ul.publications {
+    list-style: none;
+    padding: 2px;
+    font-size: 0.9em;
+}
+
+ul.publications li:nth-child(odd) {
+  background-color: #F2F2F2;
+  padding-left: 1em;
+}
+
+ul.publications li:nth-child(even) {
+  background-color: #F8F8F8;
+  padding-left: 1em;
+}
+
+strong.papertitle {
+    font-size: 1.2em; 
+    /*background-color: #fadbd8 ;*/
+    /*color: #DF013A;  */
+}
+
+ul.publications li {
+    margin-bottom: 1em;
+    padding: 5px;
+}
+
+img.me {
+    /*margin-top: 20px;*/
+    /*border: 0px;  */
+    /*border-radius: 5px; */
+    margin-top: 62px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    padding: 0px;
+}
+
+pre.bibtex {
+    margin:5px 0 0 0;
+    padding: 2px;
+    font-size: 0.9em;
+    border-style: none;
+    display: block;
+    overflow: auto;
+    white-space: pre; 
+    word-break: normal;
+    word-wrap: normal;
+    background-color: initial; 
+}
+
+a:hover, a:focus{
+    color: #B40431;
+}
+
+a { 
+    color: #DF013A;    
+}
+
+a.icons {
+    color: #000000;    
+    text-decoration: none;
+}
+
+a.icons:hover, a.icons:focus {
+    color: #B40431;  
+    text-decoration: none;
+}
+
+a.medialink {
+    text-decoration: none;
+}
+
+h1,.h2{
+  font-size: 36px;
+}
+
+h2,.h2 {
+  font-size: 22px;
+  margin-top:22px;
+}
+
+table, tr, td {
+    border: none;
+}
+
+
+
