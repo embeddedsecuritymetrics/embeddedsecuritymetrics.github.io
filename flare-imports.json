@@ -146,15 +146,6 @@
     ]
     },
     {
-    "name":"root.SAVOLA.Cost_root.SAVOLA.Effectiveness",
-    "imports":
-    [
-	"root.SMART.Specific",
-	"root.SMART.Attainable",
-	"root.PRAGMATIC.Cheap"
-    ]
-    },
-    {
     "name":"root.SAVOLA.Scalability",
     "imports":
     [
@@ -190,6 +181,8 @@
     "imports":
     [
 	"root.SMART.Time-dependent",
+    "root.SMART.Specific",
+    "root.SMART.Attainable",
 	"root.PRAGMATIC.Relevant",
 	"root.PRAGMATIC.Meaningful",
 	"root.PRAGMATIC.Timely",
